@@ -1,4 +1,4 @@
-# SpaceOutPC
+# SpaceOut PC
 a rust game<br/>
 使用SDL2开发的一个小游戏<br/>
 <img src="https://github.com/planet0104/spaceout_pc/blob/master/screenshot/20180123205844.png" /><br />
