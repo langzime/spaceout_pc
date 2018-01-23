@@ -1,0 +1,13 @@
+[package]
+name = "spaceoutpc"
+version = "0.1.0"
+authors = ["Jia Ye <planet0104@gmail.com>"]
+build = "build.rs"
+
+[dependencies]
+rand = "*"
+
+[dependencies.sdl2]
+    version = "0.31"
+    default-features = false
+    features = ["image", "ttf", "mixer"]
