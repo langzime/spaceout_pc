@@ -8,6 +8,7 @@ mod alien_sprite;
 mod background;
 mod spaceout;
 
+use std::time::{Duration, SystemTime};
 use std::{thread, time};
 use rand::Rng;
 use std::path::Path;
@@ -107,6 +108,7 @@ impl <'a>Window<'a>{
 
         let mut running = true;
         let one_millis = time::Duration::from_millis(1);
+        let mut start_time = SystemTime::now();
         while running {
             for event in event_pump.poll_iter() {
                 match event {
@@ -125,6 +127,16 @@ impl <'a>Window<'a>{
             if self.game.engine().ready_for_next_frame(){
                 self.canvas.clear();
                 self.game.game_cycle();
+
+                //绘制帧率
+                /*
+                let elapsed = start_time.elapsed().unwrap();
+                let nanos = elapsed.as_secs()*1000000000+elapsed.subsec_nanos() as u64;
+                if nanos>0{
+                    draw_text(&format!("FPS:{}", 1000000000/nanos), 10, 10);
+                }
+                start_time = SystemTime::now();
+                */
                 self.canvas.present();
             }
             //给一些延迟, CPU使用率降低到1.5%左右
